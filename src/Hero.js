@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const Hero = ({ hero, herosId, setHerosId }) => {
   const ps = hero.powerstats
 
@@ -21,10 +23,7 @@ const Hero = ({ hero, herosId, setHerosId }) => {
           <br/>
           <div className="row justify-content-around">
             <div className="col-4">
-              <a className="btn btn-primary" 
-                href="/mongo"> 
-                Detalles 
-              </a>
+              <Link className="btn btn-primary" to="/mongo"> Detalles </Link>
             </div>
             <div className="col-4">
               <button className="btn btn-danger" 

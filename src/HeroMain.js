@@ -3,6 +3,7 @@ import axios from 'axios'
 import HerosGrid from './HerosGrid'
 import HerosPowerStats from './HerosPowerStats'
 import HeroSearch from './HeroSearch'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 const myHerosToken = '102141048846123'
 
@@ -32,15 +33,22 @@ const HeroMain = ({title}) => {
 
   return (        
     <>
-      { !isLoading ? (
-        <div style={{margin:'3rem'}}> 
-          <p className="display-5"> {title} </p>
-            <HerosGrid heros={heros} herosId={herosId} setHerosId={setHerosId} />
-            <HerosPowerStats heros={heros}/> 
-            <HeroSearch token={myHerosToken} heros={heros} herosId={herosId} setHerosId={setHerosId} />
-        </div> 
-        ) : (<p className="display-6" style={{margin:'1rem'}}>cargando...</p>)
-      }
+      <Switch>
+        <Route path="/mongo">
+          {<p>other route</p>}
+        </Route>
+        <Route path="/">  
+          { !isLoading ? (
+            <div style={{margin:'3rem'}}> 
+              <p className="display-5"> {title} </p>
+              <HerosGrid heros={heros} herosId={herosId} setHerosId={setHerosId} />
+              <HerosPowerStats heros={heros}/> 
+              <HeroSearch token={myHerosToken} heros={heros} herosId={herosId} setHerosId={setHerosId} />
+            </div> 
+            ) : (<p className="display-6" style={{margin:'1rem'}}>cargando...</p>)
+          }
+        </Route>
+      </Switch>
     </>
   )
 }
