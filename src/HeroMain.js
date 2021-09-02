@@ -3,7 +3,8 @@ import axios from 'axios'
 import HerosGrid from './HerosGrid'
 import HerosPowerStats from './HerosPowerStats'
 import HeroSearch from './HeroSearch'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
+import HeroDetails from './HeroDetails'
 
 const myHerosToken = '102141048846123'
 
@@ -34,8 +35,8 @@ const HeroMain = ({title}) => {
   return (        
     <>
       <Switch>
-        <Route path="/mongo">
-          {<p>other route</p>}
+        <Route path="/:id">
+          <HeroDetails />
         </Route>
         <Route path="/">  
           { !isLoading ? (

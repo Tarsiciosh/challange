@@ -23,17 +23,13 @@ const Hero = ({ hero, herosId, setHerosId }) => {
           <br/>
           <div className="row justify-content-around">
             <div className="col-4">
-              <Link className="btn btn-primary" to="/mongo"> Detalles </Link>
+              <Link className="btn btn-primary" to={`/${hero.id}`}> Detalles </Link>
             </div>
             <div className="col-4">
               <button className="btn btn-danger" 
-                onClick={()=>{
-                  console.log("herosId:", herosId)
-                  console.log("heroID", hero.id)
-                  console.log("hero position", herosId.indexOf(hero.id))         
+                onClick={()=>{       
                   const newHerosId = herosId
-                  newHerosId.splice(newHerosId.indexOf(hero.id),1)
-                  console.log("new heros ID:", newHerosId)
+                  newHerosId.splice(newHerosId.indexOf(hero.id),1)                
                   setHerosId(newHerosId)
                 }}> 
                 Borrar 
