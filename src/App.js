@@ -1,4 +1,4 @@
-import HeroMain from './HeroMain'
+import HerosMain from './HerosMain'
 import Login from './HerosLogin'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import useToken from './useToken'
@@ -18,7 +18,7 @@ const App = () => {
           <Login />
         </Route>
         <Route path="/"> 
-          <HeroMain title= {"Bienvenido a tu pagina de héroes!"}/>
+          <HerosMain title= {"Bienvenido a tu pagina de héroes!"}/>
         </Route>
       </Switch>
     </Router>

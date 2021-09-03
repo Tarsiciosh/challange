@@ -8,15 +8,15 @@ import HeroDetails from './HeroDetails'
 
 const myHerosToken = '102141048846123'
 
-const HeroMain = ({title}) => { 
+const HerosMain = ({title}) => { 
   
   const [isLoading, setIsLoading] = useState(true)
-  const [herosId, setHerosId] = useState([644])
+  const [herosId, setHerosId] = useState([720]) //644,720,620,405,370,225
   const [heros, setHeros] = useState([])
 
   useEffect(() => { 
-    async function getHerosInfo () {   
-      try {      
+    async function getHerosInfo () {
+      try {   
         var fetchedHeros = []
         for (var i = 0; i< herosId.length; i++){
           var response = await axios.get(
@@ -24,20 +24,20 @@ const HeroMain = ({title}) => {
           )
           fetchedHeros = [...fetchedHeros, response.data]
         }
-        setHeros(fetchedHeros)
+        setHeros(fetchedHeros)      
         setIsLoading(false) 
       } catch (error){
         console.error(error)
       }
     }
     getHerosInfo()   
-  })
+  },[herosId,hero])
 
   return (        
     <>
       <Switch>
         <Route path="/:id">
-          <HeroDetails />
+          <HeroDetails/>
         </Route>
         <Route path="/">  
           { !isLoading ? (
@@ -55,4 +55,4 @@ const HeroMain = ({title}) => {
   )
 }
 
-export default HeroMain
+export default HerosMain

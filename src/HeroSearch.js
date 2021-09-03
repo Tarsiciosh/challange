@@ -40,7 +40,7 @@ const HeroSearch = ({token, heros, herosId, setHerosId}) => {
         <Form style={{marginTop:"2rem"}} >
           <p className="display-6">Busca tu héroe:</p>  
           <HeroTextInput 
-            label="Nombre"
+            label=""
             name="name"
             type="text"
             placeholder="Superman"   
@@ -49,7 +49,7 @@ const HeroSearch = ({token, heros, herosId, setHerosId}) => {
         </Form>
       </Formik>
       <br/>
-      {typeof heros !== 'undefined' ? (
+      {typeof searchedHeros !== 'undefined' ? (
         <div className="container">
           <div className ="row">
             {searchedHeros.map(searchedHero => (

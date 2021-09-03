@@ -25,7 +25,7 @@ const HeroPreview = ({ hero, heros, herosId, setHerosId }) => {
                   goodCount++
               }
               const balancedTeam = (badCount<=3 && goodCount<=3)
-              if (herosId.length < 6 && herosId.indexOf(hero.id)===-1 && balancedTeam)
+              if (herosId.length <= 6 && herosId.indexOf(hero.id)===-1 && balancedTeam)
                 setHerosId([...herosId, hero.id])             
             }}> 
             Agregar 
