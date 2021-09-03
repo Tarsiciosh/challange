@@ -29,12 +29,8 @@ const Hero = ({ hero, herosId, setHerosId }) => {
             <div className="col-4">
               <button className="btn btn-danger" 
                 onClick={()=>{      
-                  var newHerosId = [...herosId]
-                  console.log('Hero: herosId', herosId)
-                  newHerosId.splice(herosId.indexOf(hero.id),1) 
-                  console.log('Hero: newHerosId',newHerosId)
-                  const herosID = newHerosId 
-                  console.log(herosID)                                
+                  var newHerosId = [...herosId]   
+                  newHerosId.splice(herosId.indexOf(hero.id),1)                                          
                   setHerosId(newHerosId)
                 }}> 
                 Borrar 
