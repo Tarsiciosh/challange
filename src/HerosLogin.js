@@ -13,8 +13,6 @@ const Login = ({ setToken }) => {
           password: password
       })
       setToken(response.data.token)
-      //console.log(authToken)
-      //localStorage.setItem('token', authToken)
     } catch (error){
       console.error(error)
     }

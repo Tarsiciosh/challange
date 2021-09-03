@@ -11,7 +11,7 @@ const myHerosToken = '102141048846123'
 const HerosMain = ({title}) => { 
   
   const [isLoading, setIsLoading] = useState(true)
-  const [herosId, setHerosId] = useState([644,720,620,405,370,225]) //644,720,620,405,370,225
+  const [herosId, setHerosId] = useState([644,720,620,405,370,225]) 
   const [heros, setHeros] = useState([])
 
   useEffect(() => { 
