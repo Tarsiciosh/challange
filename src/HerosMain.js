@@ -31,7 +31,7 @@ const HerosMain = ({title}) => {
       }
     }
     getHerosInfo()   
-  },[herosId,hero])
+  },[herosId,heros])
 
   return (        
     <>
