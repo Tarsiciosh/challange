@@ -1,6 +1,7 @@
 import Hero from './Hero'
 
 const HerosGrid = ({ heros, herosId, setHerosId }) => {
+  
   return (
     <div className = "container">
       <div className ="row">

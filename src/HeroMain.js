@@ -9,6 +9,7 @@ import HeroDetails from './HeroDetails'
 const myHerosToken = '102141048846123'
 
 const HeroMain = ({title}) => { 
+  
   const [isLoading, setIsLoading] = useState(true)
   const [herosId, setHerosId] = useState([644])
   const [heros, setHeros] = useState([])
@@ -55,15 +56,3 @@ const HeroMain = ({title}) => {
 }
 
 export default HeroMain
-
-/*
- { !isLoading ? (
-        <div style={{margin:'3rem'}}> 
-          <p className="display-5"> {title} </p>
-            <HerosGrid heros={heros} herosId={herosId} setHerosId={setHerosId} />
-            <HerosPowerStats heros={heros}/> 
-            <HeroSearch token={token} heros={heros} herosId={herosId} setHerosId={setHerosId} />
-        </div> 
-        ) : ( < )
-      }
-*/

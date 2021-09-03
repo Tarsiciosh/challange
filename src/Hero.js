@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const Hero = ({ hero, herosId, setHerosId }) => {
+  
   const ps = hero.powerstats
 
   return (

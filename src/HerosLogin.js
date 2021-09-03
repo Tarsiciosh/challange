@@ -1,4 +1,3 @@
-//import { useState } from "react"
 import { Formik, Form } from "formik"
 import * as Yup from 'yup'
 import axios from 'axios'
@@ -6,9 +5,6 @@ import HeroTextInput from "./HeroTextImput"
 
 const Login = ({ setToken }) => {
   
-  //const [authToken,setAuthToken] = useState()
-
-
   async function submitInfo (email,password) {   
     try {      
       const response = await axios.post(

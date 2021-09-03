@@ -1,9 +1,11 @@
 import { useField } from 'formik'
 
 const HeroTextInput = ({ label, ...props }) => { 
+  
   const [field, meta] = useField(props)  
-    return (
-      <>            
+  
+  return (
+    <>            
       <div className="mb-3">
         <label htmlFor={props.id || props.name}>{label}</label>
         <input className="form-control" {...field} {...props}/> 
@@ -11,8 +13,8 @@ const HeroTextInput = ({ label, ...props }) => {
           <div className="form-text">{meta.error}</div>
         ) : null }
       </div>
-      </>
-    ) 
-  }
+    </>
+  ) 
+}
   
-  export default HeroTextInput
+export default HeroTextInput
