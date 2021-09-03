@@ -31,7 +31,11 @@ const HerosMain = ({title}) => {
       }
     }
     getHerosInfo()   
-  },[herosId,heros])
+  },[herosId])
+
+  useEffect(()=> {
+    //refresh heros
+  },[heros])
 
   return (        
     <>
