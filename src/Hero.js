@@ -30,7 +30,9 @@ const Hero = ({ hero, herosId, setHerosId }) => {
               <button className="btn btn-danger" 
                 onClick={()=>{      
                   const newHerosId = herosId
-                  newHerosId.splice(newHerosId.indexOf(parseInt(hero.id)),1)                
+                  console.log('Hero: herosId', herosId)
+                  newHerosId.splice(newHerosId.indexOf(hero.id),1) 
+                  console.log('Hero: newHerosId',newHerosId)               
                   setHerosId(newHerosId)
                 }}> 
                 Borrar 

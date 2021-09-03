@@ -16,7 +16,6 @@ const HeroDetails = () =>{
           `https://superheroapi.com/api/${myHerosToken}/${id}/`
         )
         setHero(response.data)
-        console.log("response" + response.data)
       } catch (error){
         console.error(error)
       }

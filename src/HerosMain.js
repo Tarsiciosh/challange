@@ -11,12 +11,13 @@ const myHerosToken = '102141048846123'
 const HerosMain = ({title}) => { 
   
   const [isLoading, setIsLoading] = useState(true)
-  const [herosId, setHerosId] = useState([644,720,620,405,370,225]) 
+  const [herosId, setHerosId] = useState([]) 
   const [heros, setHeros] = useState([])
 
   useEffect(() => { 
     async function getHerosInfo () {
-      try {   
+      try {
+        setIsLoading(true)    
         var fetchedHeros = []
         for (var i = 0; i< herosId.length; i++){
           var response = await axios.get(
@@ -25,16 +26,17 @@ const HerosMain = ({title}) => {
           fetchedHeros = [...fetchedHeros, response.data]
         }
         setHeros(fetchedHeros)      
-        setIsLoading(false) 
+        setIsLoading(false)
+        console.log('HerosMain: herosId changed',herosId) 
       } catch (error){
-        console.error(error)
+        console.error(error) 
       }
     }
     getHerosInfo()   
   },[herosId])
 
   useEffect(()=> {
-    //refresh heros
+    console.log("HerosMain: heros array changed")
   },[heros])
 
   return (        
