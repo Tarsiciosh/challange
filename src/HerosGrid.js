@@ -2,6 +2,7 @@ import Hero from './Hero'
 
 const HerosGrid = ({ heros, herosId, setHerosId }) => {
   
+  //setHerosId(['720','255','322'])
   return (
     <>
       { heros.length !==0 ? (

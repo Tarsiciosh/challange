@@ -25,9 +25,6 @@ const HeroPreview = ({ hero, heros, herosId, setHerosId }) => {
                   goodCount++
               }
               const balancedTeam = (badCount<=3 && goodCount<=3)
-              console.log('HeroPreview: badCount',badCount)
-              console.log('HeroPreview: goodCount',goodCount)
-              console.log('HeroPreview: balancedTeam',balancedTeam)
               if (herosId.indexOf(hero.id)===-1 && balancedTeam)
                 setHerosId([...herosId, hero.id])             
             }}> 
