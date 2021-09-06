@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
+import HerosContext from './herosContext'
 import axios from 'axios'
 import HerosGrid from './HerosGrid'
 import HerosPowerStats from './HerosPowerStats'
 import HerosSearch from './HerosSearch'
-import { Switch, Route } from 'react-router-dom'
 import HeroDetails from './HeroDetails'
-import HerosContext from './herosContext'
+import { Switch, Route } from 'react-router-dom'
 
 const myHerosToken = '102141048846123'
 
