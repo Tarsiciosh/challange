@@ -10,17 +10,17 @@ const HeroDetails = () =>{
   let { id } = useParams()
 
   var hero 
-  for (var i=0; i < heros.length; i++){
+  for (var i=0; i< heros.length; i++){
     if (heros[i].id === id)
       hero = heros[i]
   }
 
   return (
-    hero !== 'undefined' ?
+    typeof hero !== 'undefined' ?
       <div style={{
         "display": "flex", 
-        "flex-direction": "column", 
-        "align-items":"center",
+        "flexDirection": "column", 
+        "alignItems":"center",
         "margin": "2rem" 
       }}>
         <h4 className="display-5" >{hero?.name}</h4>
@@ -42,7 +42,7 @@ const HeroDetails = () =>{
           </div>
         </div>
       </div> 
-    : <p style= {{margin: '1rem'}}> no tienes este héroe! </p>
+    : <h4 style= {{margin: '1rem'}}> no tienes este héroe! </h4>
   )
 }
 

@@ -1,7 +1,7 @@
 import { Formik, Form } from "formik"
 import * as Yup from 'yup'
 import axios from 'axios'
-import HeroTextInput from "./HeroTextImput"
+import TextInput from "./TextImputs"
 
 const Login = ({ setToken }) => {
   
@@ -48,13 +48,13 @@ const Login = ({ setToken }) => {
           "padding":"5rem"}}>
         Ingrese su usuario y contraseña:
         <Form style={{marginTop:"2rem"}} >
-          <HeroTextInput 
+          <TextInput 
             label="Email"
             name="email"
             type="email"
             placeHolder="challenge@alkemy.org"   
           />
-          <HeroTextInput 
+          <TextInput 
             label="Password" 
             name="password"
             type="password"

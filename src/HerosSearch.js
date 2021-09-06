@@ -3,7 +3,8 @@ import { Formik, Form } from "formik"
 import * as Yup from 'yup'
 import axios from 'axios'
 import HeroPreview from "./HeroPreview"
-import HeroTextInput from "./HeroTextImput"
+import {SearchTextInput} from "./TextImputs"
+
 import HerosContext from "./herosContext"
 
 const HerosSearch = () => {
@@ -46,7 +47,7 @@ const HerosSearch = () => {
       >
         <Form style={{marginTop:"2rem"}} >
           <p className="display-6">Busca tu héroe:</p>  
-          <HeroTextInput 
+          <SearchTextInput 
             label=""
             name="name"
             type="text"

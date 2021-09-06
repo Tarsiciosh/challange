@@ -12,7 +12,7 @@ const Hero = ({ hero }) => {
 
   return (
     <>
-      <div className="card" style={{width: "18rem", margin:30}}>
+      <div className="card" style={{width: "15rem", margin:30}}>
         <img className="card-img-top" 
           src={hero.image.url} 
           alt="hero"  
@@ -29,11 +29,11 @@ const Hero = ({ hero }) => {
           </ul>
           <br/>
           <div className="row justify-content-around">
-            <div className="col-4">
+            <div className="col-5">
               <Link className="btn btn-primary" to={`/${hero.id}`}> Detalles </Link>
             </div>
-            <div className="col-4">
-              <button className="btn btn-danger" 
+            <div className="col-5">
+              <button className="btn btn-danger"
                 onClick={()=>{      
                   var newHerosId = [...herosId]   
                   newHerosId.splice(herosId.indexOf(hero.id),1)                                          
