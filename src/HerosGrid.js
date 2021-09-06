@@ -1,8 +1,13 @@
+import { useContext } from 'react'
+import HerosContext from './herosContext'
 import Hero from './Hero'
 
-const HerosGrid = ({ heros, herosId, setHerosId }) => {
+const HerosGrid = ({ herosId, setHerosId }) => {
   
   //setHerosId(['720','255','322'])
+  const context = useContext (HerosContext)
+  const heros = context.heros
+
   return (
     <>
       { heros.length !==0 ? (
@@ -15,7 +20,7 @@ const HerosGrid = ({ heros, herosId, setHerosId }) => {
             ))}
           </div>
         </div>
-        ) : "Aun no tienes héroes"
+        ) : "No tienes héroes que mostrar"
       }
     </>
   )

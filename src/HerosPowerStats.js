@@ -1,9 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import HeroPowerStat from "./HeroPowerStat";
+import HerosContext from "./herosContext";
 
-const HerosPowerStats = ({heros}) => {
+const HerosPowerStats = () => {
 
   const [ps, setPs] = useState ([])
+
+  const context = useContext(HerosContext)
+  const heros = context.heros
   
   useEffect ( () => {
     let newPs = {

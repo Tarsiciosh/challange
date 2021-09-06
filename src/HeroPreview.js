@@ -1,5 +1,13 @@
-const HeroPreview = ({ hero, heros, herosId, setHerosId }) => {
+import { useContext } from "react"
+import HerosContext from "./herosContext"
+
+const HeroPreview = ({ hero }) => {
   
+  const context = useContext(HerosContext)
+  const herosId = context.herosId
+  const setHerosId = context.setHerosId
+  const heros = context.heros
+ 
   return (
     <>
       <div className="card" style={{width: "10rem", margin:10}}>

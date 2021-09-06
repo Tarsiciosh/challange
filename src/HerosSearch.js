@@ -1,18 +1,25 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Formik, Form } from "formik"
 import * as Yup from 'yup'
 import axios from 'axios'
 import HeroPreview from "./HeroPreview"
 import HeroTextInput from "./HeroTextImput"
+import HerosContext from "./herosContext"
 
-const HeroSearch = ({token, heros, herosId, setHerosId}) => {
+const HerosSearch = () => {
+
+  const context = useContext(HerosContext)
+  const herosToken = context.herosToken
+  const herosId = context.herosId
+  const setHerosId = context.setHerosId
+  const heros = context.heros
 
   const [searchedHeros,setSearchedHeros] = useState([])
 
   async function getHeros (name) {   
     try {      
       const response = await axios.get(
-        `https://superheroapi.com/api/${token}/search/${name}/`
+        `https://superheroapi.com/api/${herosToken}/search/${name}/`
       )
       setSearchedHeros(response.data.results) 
     } catch (error){
@@ -52,7 +59,7 @@ const HeroSearch = ({token, heros, herosId, setHerosId}) => {
       {typeof searchedHeros !== 'undefined' ? (
         <div className="container">
           <div className ="row">
-            {searchedHeros.map(searchedHero => (
+            { searchedHeros.map( searchedHero => (
               <div className ="col" key={searchedHero.id}>
                 <HeroPreview hero={searchedHero} heros={heros} herosId={herosId} setHerosId={setHerosId} />
               </div>
@@ -64,4 +71,4 @@ const HeroSearch = ({token, heros, herosId, setHerosId}) => {
   )
 }
 
-export default HeroSearch
+export default HerosSearch

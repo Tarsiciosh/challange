@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import HerosGrid from './HerosGrid'
 import HerosPowerStats from './HerosPowerStats'
-import HeroSearch from './HeroSearch'
+import HerosSearch from './HerosSearch'
 import { Switch, Route } from 'react-router-dom'
 import HeroDetails from './HeroDetails'
+import HerosContext from './herosContext'
 
 const myHerosToken = '102141048846123'
 
@@ -38,8 +39,15 @@ const HerosMain = ({title}) => {
     //heros update
   },[heros])
 
+  const herosContextValue = {
+    herosToken: myHerosToken, 
+    herosId: herosId,
+    setHerosId: setHerosId,
+    heros: heros,
+  }
+
   return (        
-    <>
+    <HerosContext.Provider value={herosContextValue}>
       <Switch>
         <Route path="/:id">
           <HeroDetails/>
@@ -48,15 +56,15 @@ const HerosMain = ({title}) => {
           { !isLoading ? (
             <div style={{margin:'3rem'}}> 
               <p className="display-5"> {title} </p>
-              <HerosGrid heros={heros} herosId={herosId} setHerosId={setHerosId} />
-              <HerosPowerStats heros={heros}/> 
-              <HeroSearch token={myHerosToken} heros={heros} herosId={herosId} setHerosId={setHerosId} />
+              <HerosGrid/>
+              <HerosPowerStats/> 
+              <HerosSearch/>
             </div> 
             ) : (<p className="display-6" style={{margin:'1rem'}}>cargando...</p>)
           }
         </Route>
       </Switch>
-    </>
+    </HerosContext.Provider>
   )
 }
 
