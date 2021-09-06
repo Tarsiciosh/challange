@@ -26,8 +26,7 @@ const HerosMain = ({title}) => {
           fetchedHeros = [...fetchedHeros, response.data]
         }
         setHeros(fetchedHeros)      
-        setIsLoading(false)
-        console.log('HerosMain: herosId changed',herosId) 
+        setIsLoading(false) 
       } catch (error){
         console.error(error) 
       }
@@ -36,7 +35,7 @@ const HerosMain = ({title}) => {
   },[herosId])
 
   useEffect(()=> {
-    console.log("HerosMain: heros array changed")
+    //heros update
   },[heros])
 
   return (        
