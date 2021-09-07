@@ -18,7 +18,7 @@ const App = () => {
           <Login />
         </Route>
         <Route path="/"> 
-          <HerosMain title= {"Bienvenido a tu pagina de héroes!"}/>
+          <HerosMain title={"Bienvenido a tu pagina de héroes!"}/>
         </Route>
       </Switch>
     </Router>

@@ -9,7 +9,7 @@ import { Switch, Route } from 'react-router-dom'
 
 const myHerosToken = '102141048846123'
 
-const HerosMain = ({title}) => { 
+const HerosMain = ({ title }) => { 
   
   const [isLoading, setIsLoading] = useState(true)
   const [herosId, setHerosId] = useState([]) 

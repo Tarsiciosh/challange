@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import HerosContext from './herosContext'
 import Hero from './Hero'
 
-const HerosGrid = ({ herosId, setHerosId }) => {
+const HerosGrid = () => {
 
   const context = useContext (HerosContext)
   const heros = context.heros
