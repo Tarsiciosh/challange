@@ -7,6 +7,24 @@ const HeroPreview = ({ hero }) => {
   const herosId = context.herosId
   const setHerosId = context.setHerosId
   const heros = context.heros
+
+  const handleClick = () => {
+    var badCount=0 
+    var goodCount=0
+    if(hero.biography.alignment === "bad")
+      badCount=1
+    if(hero.biography.alignment === "good") 
+      goodCount=1
+    for (var i = 0; i< heros.length; i++){
+      if(heros[i].biography.alignment === "bad")
+        badCount++
+      else
+        goodCount++
+    }
+    const balancedTeam = (badCount<=3 && goodCount<=3)
+    if (herosId.indexOf(hero.id)===-1 && balancedTeam)
+      setHerosId([...herosId, hero.id])  
+  }
  
   return (
     <>
@@ -18,24 +36,7 @@ const HeroPreview = ({ hero }) => {
         <div className="card-body">
           <h5 className="card-title">{hero.name}</h5>
           <br/>        
-          <button className="btn btn-primary" 
-            onClick = {()=>{
-              var badCount=0 
-              var goodCount=0
-              if(hero.biography.alignment === "bad")
-                badCount=1
-              if(hero.biography.alignment === "good") 
-                goodCount=1
-              for (var i = 0; i< heros.length; i++){
-                if(heros[i].biography.alignment === "bad")
-                  badCount++
-                else
-                  goodCount++
-              }
-              const balancedTeam = (badCount<=3 && goodCount<=3)
-              if (herosId.indexOf(hero.id)===-1 && balancedTeam)
-                setHerosId([...herosId, hero.id])             
-            }}> 
+          <button className="btn btn-primary" onClick = {handleClick}> 
             Agregar 
           </button>   
         </div>
