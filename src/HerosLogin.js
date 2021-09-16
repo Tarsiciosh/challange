@@ -43,16 +43,16 @@ const Login = ({ setToken }) => {
       <> 
       <div style={{
           "display": "flex", 
-          "flex-direction": "column", 
-          "align-items":"center", 
+          "flexDirection": "column", 
+          "alignItems":"center", 
           "padding":"5rem"}}>
-        Ingrese su usuario y contraseña:
+        <p>Ingrese su usuario y contraseña:</p> 
         <Form style={{marginTop:"2rem"}} >
           <TextInput 
             label="Email"
             name="email"
             type="email"
-            placeHolder="challenge@alkemy.org"   
+            placeholder="challenge@alkemy.org"   
           />
           <TextInput 
             label="Password" 
