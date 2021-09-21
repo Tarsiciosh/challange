@@ -7,7 +7,7 @@ jest.mock('./useToken', () => {
   return jest.fn() //returns a mock function and not undefined
 })
 
-test ('render login title (with no token present)', () => { 
+test ('render login message (with no token present)', () => { 
   useToken.mockReturnValue([null,null])
   render(<App />)
   const loginTitle = screen.getByText(/ingrese /i)
