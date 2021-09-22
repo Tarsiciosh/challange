@@ -7,8 +7,8 @@ import HerosSearch from './HerosSearch'
 import HeroDetails from './HeroDetails'
 import { Switch, Route } from 'react-router-dom'
 
-import { useSelector, useDispatch } from 'react-redux'
-import { add, getHerosInfo } from './features/herosSlice'
+import { useDispatch } from 'react-redux'
+import { getHerosInfo } from './features/herosSlice'
 
 
 const myHerosToken = '102141048846123'
@@ -20,7 +20,7 @@ const HerosMain = ({title}) => {
   const [herosId, setHerosId] = useState([]) 
   const [heros, setHeros] = useState([])
 
-  const myHeros = useSelector ((state) => state.heros.value)
+  //const searchedHeros = useSelector ((state) => state.heros.value.searchedHeros)
   const dispatch = useDispatch()
 
   useEffect(() => { 
@@ -36,7 +36,6 @@ const HerosMain = ({title}) => {
         }
         setHeros(fetchedHeros)      
         setIsLoading(false)
-        console.log('myHeros:', myHeros) 
       } catch (error){
         console.error(error) 
       }
@@ -68,12 +67,8 @@ const HerosMain = ({title}) => {
               <HerosGrid />
               <HerosPowerStats /> 
               <HerosSearch />
-              {
-                myHeros.map (hero =>
-                  <p> {hero?.name} </p>
-                )  
-              }
-              <button onClick={()=> dispatch(getHerosInfo(['720','79','88']))}>Dispatch</button>
+          
+              <button onClick={()=> dispatch(getHerosInfo('power'))}>Dispatch</button>
             </div> 
             ) : (<p className="display-6" style={{margin:'1rem'}}>cargando...</p>)
           }
@@ -84,3 +79,14 @@ const HerosMain = ({title}) => {
 }
 
 export default HerosMain
+
+
+/*
+{
+
+  searchedHeros?.map (hero =>
+    <p> {hero?.name} </p>
+    )  
+  }
+
+ */

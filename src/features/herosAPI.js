@@ -2,6 +2,32 @@ import axios from "axios"
 
 const myHerosToken = '102141048846123'
 
+export async function fetchHeros (name) {   
+  try {      
+    const response = await axios.get(
+      `https://superheroapi.com/api/${myHerosToken}/search/${name}/`
+    )
+    return response.data.results 
+  } catch (error){
+    console.error(error)
+  }
+}
+
+/*
+  async function getHeros (name) {   
+    try {      
+      const response = await axios.get(
+        `https://superheroapi.com/api/${herosToken}/search/${name}/`
+      )
+      setSearchedHeros(response.data.results) 
+    } catch (error){
+      console.error(error)
+    }
+  }
+*/
+
+
+/*
 export async function fetchHeros (herosId) {
   try {
     var fetchedHeros = []
@@ -16,18 +42,6 @@ export async function fetchHeros (herosId) {
  
   } catch (error){
     console.error(error) 
-  }
-}
-
-/*
-async function getHeros (name) {   
-  try {      
-    const response = await axios.get(
-      `https://superheroapi.com/api/${herosToken}/search/${name}/`
-    )
-    setSearchedHeros(response.data.results) 
-  } catch (error){
-    console.error(error)
   }
 }
 */

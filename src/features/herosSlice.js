@@ -2,25 +2,19 @@ import {  createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { fetchHeros } from './herosAPI'
 
 const initialState = {
-  value: [],
+  value: {
+    searchedHeros: [],
+    heros: [],
+  },
   status: 'idle',
 }
 
-const getIdsFromHeros = (herosArray) =>
-{
-  let herosIdsArray = []
-  for (let i=0; i< herosArray[i]; i++)
-    herosIdsArray = [...herosIdsArray, herosArray[i].id]
-  
-  return herosIdsArray
-}  
-
 export const getHerosInfo = createAsyncThunk(
   'heros/fetchHeros',
-  async (herosId) => {
-    const response = await fetchHeros (herosId)
+  async (name) => {
+    const response = await fetchHeros (name)
     return response
-  } 
+  }
 )
 
 export const herosSlice = createSlice({
@@ -28,9 +22,7 @@ export const herosSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action) => {
-      let herosIdArray = getIdsFromHeros(state.value)
       // to-do: dispatch? getHerosInfo?     
-      console.log('(add) herosIdArray:',herosIdArray) 
     },
     remove: (state, action) => {
       // check for id in action.payload and delete
@@ -44,7 +36,7 @@ export const herosSlice = createSlice({
       })
       .addCase(getHerosInfo.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.value = action.payload
+        state.value.searchedHeros = action.payload
       })
   }
 })

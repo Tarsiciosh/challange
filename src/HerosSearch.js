@@ -1,32 +1,16 @@
-import { useContext, useState } from "react"
 import { Formik, Form } from "formik"
 import * as Yup from 'yup'
-import axios from 'axios'
 import HeroPreview from "./HeroPreview"
-import {SearchTextInput} from "./TextImputs"
+import { SearchTextInput } from "./TextImputs"
 
-import HerosContext from "./herosContext"
+import { useSelector , useDispatch } from 'react-redux'
+import { getHerosInfo } from './features/herosSlice'
+
 
 const HerosSearch = () => {
 
-  const context = useContext(HerosContext)
-  const herosToken = context.herosToken
-  const herosId = context.herosId
-  const setHerosId = context.setHerosId
-  const heros = context.heros
-
-  const [searchedHeros,setSearchedHeros] = useState([])
-
-  async function getHeros (name) {   
-    try {      
-      const response = await axios.get(
-        `https://superheroapi.com/api/${herosToken}/search/${name}/`
-      )
-      setSearchedHeros(response.data.results) 
-    } catch (error){
-      console.error(error)
-    }
-  }
+  const searchedHeros = useSelector ((state) => state.heros.value.searchedHeros)
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -40,7 +24,8 @@ const HerosSearch = () => {
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            getHeros(values.name)
+            //getHeros(values.name)
+            dispatch(getHerosInfo(values.name))
             setSubmitting(false);
           }, 400);
         }}
@@ -62,7 +47,7 @@ const HerosSearch = () => {
           <div className ="row">
             { searchedHeros.map( searchedHero => (
               <div className ="col" key={searchedHero.id}>
-                <HeroPreview hero={searchedHero} heros={heros} herosId={herosId} setHerosId={setHerosId} />
+                <HeroPreview hero={searchedHero} />
               </div>
             ))}
           </div>
