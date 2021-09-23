@@ -8,7 +8,7 @@ import { getHerosInfo } from './features/herosSlice'
 
 const HerosSearch = () => {
 
-  const searchedHeros = useSelector ((state) => state.heros.value.searchedHeros)
+  const searchedHeros = useSelector ((state) => state.heros.values.searchedHeros)
   const dispatch = useDispatch()
 
   return (

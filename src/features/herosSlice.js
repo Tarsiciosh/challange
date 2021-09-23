@@ -2,7 +2,7 @@ import {  createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { fetchHeros } from './herosAPI'
 
 const initialState = {
-  value: {
+  values: {
     searchedHeros: [],
     heros: [],
   },
@@ -22,8 +22,8 @@ export const herosSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action) => {    
-      const searchedHeros =  state.value.searchedHeros
-      const heros = state.value.heros
+      const searchedHeros =  state.values.searchedHeros
+      const heros = state.values.heros
       for (let i=0; i < searchedHeros.length; i++) {
         if (searchedHeros[i].id === action.payload) { //hero founded in searchedHeros
           const hero = searchedHeros[i]
@@ -45,19 +45,19 @@ export const herosSlice = createSlice({
           }    
           const balancedTeam = (badCount<=3 && goodCount<=3)
           if (!alreadyChosen && balancedTeam) 
-           state.value.heros = [...state.value.heros, hero]          
+           state.values.heros = [...state.values.heros, hero]          
         }
       }
     },
     remove: (state, action) => {
-      const heros = state.value.heros
+      const heros = state.values.heros
       let removeIndex = null
       for (let i=0; i < heros.length; i++) {
         if (heros[i].id === action.payload) { //hero founded in hero
           removeIndex = i   
         }
       }
-      state.value.heros.splice(removeIndex,1) //because of immer library?
+      state.values.heros.splice(removeIndex,1) //because of immer library?
     }
   },
   extraReducers: (builder) => {
@@ -67,7 +67,7 @@ export const herosSlice = createSlice({
       })
       .addCase(getHerosInfo.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.value.searchedHeros = action.payload
+        state.values.searchedHeros = action.payload
       })
   }
 })

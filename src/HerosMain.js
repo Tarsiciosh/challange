@@ -14,7 +14,7 @@ const HerosMain = ({title}) => {
   const [isLoading] = useState(false) 
   const [herosId, setHerosId] = useState([]) 
 
-  const heros = useSelector ((state) => state.heros.value.heros)
+  const heros = useSelector ((state) => state.heros.values.heros)
   
   const herosContextValue = { 
     herosId: herosId,

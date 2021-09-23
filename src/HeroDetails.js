@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 const HeroDetails = () =>{
 
-  const heros = useSelector ((state) => state.heros.value.searchedHeros)
+  const heros = useSelector ((state) => state.heros.values.searchedHeros)
 
   let { id } = useParams()
   var hero 
