@@ -1,4 +1,4 @@
-const HeroPowerStat = ( {data} ) => {
+const HeroPowerStat = ({ data }) => {
   
   return (
     <li className="list-group-item">     

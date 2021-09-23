@@ -1,16 +1,13 @@
-import { useContext } from "react"
 import { useParams } from "react-router"
-import HerosContext from "./herosContext"
+import { useSelector } from 'react-redux'
 
 const HeroDetails = () =>{
-  
-  const context = useContext(HerosContext)
-  const heros = context.heros
+
+  const heros = useSelector ((state) => state.heros.value.searchedHeros)
 
   let { id } = useParams()
-
-  var hero 
-  for (var i=0; i< heros.length; i++){
+  let hero 
+  for (let i=0; i < heros.length; i++){
     if (heros[i].id === id)
       hero = heros[i]
   }
@@ -42,7 +39,7 @@ const HeroDetails = () =>{
           </div>
         </div>
       </div> 
-    : <h4 style= {{margin: '1rem'}}> no tienes este héroe! </h4>
+    : <h4 style= {{margin: '1rem'}}> No tienes este héroe! </h4>
   )
 }
 

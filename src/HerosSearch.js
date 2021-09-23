@@ -6,7 +6,6 @@ import { SearchTextInput } from "./TextImputs"
 import { useSelector , useDispatch } from 'react-redux'
 import { getHerosInfo } from './features/herosSlice'
 
-
 const HerosSearch = () => {
 
   const searchedHeros = useSelector ((state) => state.heros.value.searchedHeros)

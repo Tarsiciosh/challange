@@ -1,12 +1,6 @@
-import { useContext } from 'react'
-import HerosContext from './herosContext'
 import Hero from './Hero'
 
-const HerosGrid = ({ herosId, setHerosId }) => {
-
-  const context = useContext (HerosContext)
-  const heros = context.heros
-
+const HerosGrid = ({ heros }) => {
   return (
     <>
       { heros.length !==0 ? (
@@ -23,7 +17,6 @@ const HerosGrid = ({ herosId, setHerosId }) => {
       }
     </>
   )
-
 }
 
 export default HerosGrid

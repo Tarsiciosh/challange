@@ -1,16 +1,12 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import HeroPowerStat from "./HeroPowerStat";
-import HerosContext from "./herosContext";
 
-const HerosPowerStats = () => {
+const HerosPowerStats = ({ heros }) => {
 
-  const [ps, setPs] = useState ([])
-
-  const context = useContext(HerosContext)
-  const heros = context.heros
+  const [powerStats, setPowerStats] = useState ([])
   
   useEffect ( () => {
-    let newPs = {
+    let totalPs = {
       Inteligencia: 0, 
       Fuerza: 0, 
       Velocidad : 0, 
@@ -20,30 +16,30 @@ const HerosPowerStats = () => {
     }
 
     heros.forEach(hero => {
-      newPs.Inteligencia = newPs.Inteligencia + parseInt(hero.powerstats.intelligence)
-      newPs.Fuerza = newPs.Fuerza + parseInt(hero.powerstats.strength)
-      newPs.Velocidad = newPs.Velocidad + parseInt(hero.powerstats.speed)
-      newPs.Durabilidad = newPs.Durabilidad + parseInt(hero.powerstats.durability)
-      newPs.Potencia = newPs.Potencia + parseInt(hero.powerstats.power)
-      newPs.Combate = newPs.Combate + parseInt(hero.powerstats.combat)
+      totalPs.Inteligencia = totalPs.Inteligencia + parseInt(hero.powerstats.intelligence)
+      totalPs.Fuerza = totalPs.Fuerza + parseInt(hero.powerstats.strength)
+      totalPs.Velocidad = totalPs.Velocidad + parseInt(hero.powerstats.speed)
+      totalPs.Durabilidad = totalPs.Durabilidad + parseInt(hero.powerstats.durability)
+      totalPs.Potencia = totalPs.Potencia + parseInt(hero.powerstats.power)
+      totalPs.Combate = totalPs.Combate + parseInt(hero.powerstats.combat)
     })
 
     var statsArray = []
-    for (const property in newPs){
+    for (const property in totalPs){
       statsArray = [...statsArray,{
         stat: property,
-        value: newPs[property]
+        value: totalPs[property]
       }]
     }
     statsArray.sort((a,b) => (b.value - a.value))
-    setPs(statsArray)
+    setPowerStats(statsArray)
   },[heros])
 
   return (
     <>
       <p className="display-6">Capacidades grupales: </p>
       <ul className="list-group" style={{width: "20rem"}}>
-        {ps.map(p => (
+        {powerStats.map(p => (
           <HeroPowerStat data={p} key={p.stat}/>
         ))}
       </ul>
