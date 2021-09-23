@@ -22,11 +22,11 @@ export const herosSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action) => {    
-      const sh =  state.value.searchedHeros
-      const h = state.value.heros
-      for (let i=0; i < sh.length; i++) {
-        if (sh[i].id === action.payload) { //hero founded in searchedHeros
-          const hero = sh[i]
+      const searchedHeros =  state.value.searchedHeros
+      const heros = state.value.heros
+      for (let i=0; i < searchedHeros.length; i++) {
+        if (searchedHeros[i].id === action.payload) { //hero founded in searchedHeros
+          const hero = searchedHeros[i]
           let badCount=0 
           let goodCount=0
           let alreadyChosen = false
@@ -35,12 +35,12 @@ export const herosSlice = createSlice({
           if(hero.biography.alignment === "good") 
             goodCount=1
 
-          for (let j = 0; j< h.length; j++){
-            if(h[j].biography.alignment === "bad")
+          for (let j = 0; j< heros.length; j++){
+            if(heros[j].biography.alignment === "bad")
               badCount++
             else
               goodCount++
-            if (h[j].id === hero.id)
+            if (heros[j].id === hero.id)
               alreadyChosen = true
           }    
           const balancedTeam = (badCount<=3 && goodCount<=3)
@@ -50,8 +50,14 @@ export const herosSlice = createSlice({
       }
     },
     remove: (state, action) => {
-      // check for id in action.payload and delete
-      // hero if exists
+      const heros = state.value.heros
+      let removeIndex = null
+      for (let i=0; i < heros.length; i++) {
+        if (heros[i].id === action.payload) { //hero founded in hero
+          removeIndex = i   
+        }
+      }
+      state.value.heros.splice(removeIndex,1) //because of immer library?
     }
   },
   extraReducers: (builder) => {

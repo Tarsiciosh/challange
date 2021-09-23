@@ -39,8 +39,8 @@ const HerosPowerStats = ({ heros }) => {
     <>
       <p className="display-6">Capacidades grupales: </p>
       <ul className="list-group" style={{width: "20rem"}}>
-        {powerStats.map(p => (
-          <HeroPowerStat data={p} key={p.stat}/>
+        {powerStats.map(powerStatData => (
+          <HeroPowerStat data={powerStatData} key={powerStatData.stat}/>
         ))}
       </ul>
     </>

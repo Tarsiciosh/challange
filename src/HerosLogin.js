@@ -33,8 +33,7 @@ const Login = ({ setToken }) => {
           .required('Requerido'),        
       })}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-        
+        setTimeout(() => {       
           submitInfo(values.email, values.password)
           setSubmitting(false);
         }, 400);

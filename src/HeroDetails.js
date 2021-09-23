@@ -6,7 +6,7 @@ const HeroDetails = () =>{
   const heros = useSelector ((state) => state.heros.value.searchedHeros)
 
   let { id } = useParams()
-  let hero 
+  var hero 
   for (let i=0; i < heros.length; i++){
     if (heros[i].id === id)
       hero = heros[i]

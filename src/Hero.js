@@ -1,12 +1,11 @@
-import { useContext } from 'react'
-import HerosContext from './herosContext'
 import { Link } from 'react-router-dom'
+
+import { useDispatch } from 'react-redux'
+import { remove } from './features/herosSlice'
 
 const Hero = ({ hero }) => {
 
-  const context = useContext(HerosContext)
-  const herosId = context.herosId
-  const setHerosId = context.setHerosId
+  const dispatch = useDispatch()
   
   const ps = hero.powerstats
 
@@ -35,9 +34,7 @@ const Hero = ({ hero }) => {
             <div className="col-5">
               <button className="btn btn-danger"
                 onClick={()=>{      
-                  var newHerosId = [...herosId]   
-                  newHerosId.splice(herosId.indexOf(hero.id),1)                                          
-                  setHerosId(newHerosId)
+                  dispatch(remove(hero.id))                                    
                 }}> 
                 Borrar 
               </button>
