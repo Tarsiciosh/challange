@@ -11,6 +11,9 @@ const HerosSearch = () => {
   const searchedHeros = useSelector ((state) => state.heros.values.searchedHeros)
   const dispatch = useDispatch()
 
+  const status = useSelector (state => state.heros.status)
+  const isLoading = status === 'pending' ? true : false 
+  
   return (
     <>
       <Formik
@@ -41,17 +44,22 @@ const HerosSearch = () => {
         </Form>
       </Formik>
       <br/>
-      {typeof searchedHeros !== 'undefined' ? (
-        <div className="container">
-          <div className ="row">
-            { searchedHeros.map( searchedHero => (
-              <div className ="col" key={searchedHero.id}>
-                <HeroPreview hero={searchedHero} />
-              </div>
-            ))}
+      {isLoading ?  
+        <p className="display-8" style={{margin:'0.5rem'}}>cargando...</p>
+        : <> {
+          typeof searchedHeros !== 'undefined' ? (
+          <div className="container">
+            <div className ="row">
+              { searchedHeros.map( searchedHero => (
+                <div className ="col" key={searchedHero.id}>
+                  <HeroPreview hero={searchedHero} />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ) : "No se encontraron resultados"}
+          ) : "No se encontraron resultados"}
+        </> 
+      }
     </> 
   )
 }
