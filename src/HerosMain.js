@@ -8,7 +8,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 
-const HerosMain = ({title}) => { 
+const HerosMain = ({ title }) => { 
   
   // to-do change is loading mechanism
   //const [isLoading] = useState(false) 
