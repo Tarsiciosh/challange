@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux'
 
 const HeroDetails = ({ match }) =>{
 
-  const heros = useSelector ((state) => state.heros.owned)
   const { id } = useParams()
+ 
+  const hero = useSelector (state => 
+    state.heros.owned.find(hero => hero.id === id)
+  )
   
-  const hero = heros.find (hero => hero.id === id)
-
   return (
     typeof hero !== 'undefined' ?
       <div style={{
