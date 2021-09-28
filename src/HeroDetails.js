@@ -1,10 +1,11 @@
 import { useParams } from "react-router"
 import { useSelector } from 'react-redux'
 
-const HeroDetails = () =>{
+const HeroDetails = ({ match }) =>{
 
   const heros = useSelector ((state) => state.heros.owned)
   const { id } = useParams()
+  
   const hero = heros.find (hero => hero.id === id)
 
   return (

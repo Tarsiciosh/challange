@@ -13,14 +13,14 @@ const HerosMain = ({ title }) => {
   return (        
     <Switch>
       <Route path="/:id">
-        <HeroDetails/>
+        <HeroDetails />
       </Route>
-      <Route path="/">  
+      <Route exact path="/">  
         <>
           <div style={{margin:'3rem'}}> 
             <p className="display-5"> {title} </p>
             <HerosGrid heros={heros} />
-            <HerosPowerStats heros={heros}/> 
+            <HerosPowerStats heros={heros} /> 
             <HerosSearch />
           </div> 
         </>
