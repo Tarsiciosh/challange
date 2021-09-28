@@ -4,13 +4,8 @@ import { useSelector } from 'react-redux'
 const HeroDetails = () =>{
 
   const heros = useSelector ((state) => state.heros.owned)
-
-  let { id } = useParams()
-  var hero 
-  for (let i=0; i < heros.length; i++){
-    if (heros[i].id === id)
-      hero = heros[i]
-  }
+  const { id } = useParams()
+  const hero = heros.find (hero => hero.id === id)
 
   return (
     typeof hero !== 'undefined' ?

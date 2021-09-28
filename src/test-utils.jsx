@@ -19,7 +19,7 @@ import herosReducer from './features/herosSlice'
    return rtlRender(ui, { wrapper: Wrapper, ...renderOptions})
  }
 
-// re-export everythin
+// re-export everything
 export * from '@testing-library/react'
 // override render method
 export { render }
