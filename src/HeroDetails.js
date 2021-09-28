@@ -20,21 +20,21 @@ const HeroDetails = () =>{
         "alignItems":"center",
         "margin": "2rem" 
       }}>
-        <h4 className="display-5" >{hero?.name}</h4>
+        <h4 className="display-5" >{hero.name}</h4>
         <div className="card" style={{width: "30rem", margin:30}}>
           <img className="card-img-top" 
-            src={hero?.image.url} 
+            src={hero.image.url} 
             alt="hero"  
           />
           <div className="card-body">   
             <ul className="list-group">
-              <li className="list-group-item" key="1"> {`Peso: ${hero?.appearance.weight[1]}`} </li>
-              <li className="list-group-item" key="2"> {`Altura: ${hero?.appearance.height[1]}`}</li>
-              <li className="list-group-item" key="3"> {`Nombre: ${hero?.name}`}</li>
-              <li className="list-group-item" key="4"> {`Alias: ${hero?.biography.aliases[0]}`}</li>
-              <li className="list-group-item" key="5"> {`Color de ojos: ${hero?.appearance["eye-color"]}`}</li>
-              <li className="list-group-item" key="6"> {`Color de cabello: ${hero?.appearance["hair-color"]}`}</li>
-              <li className="list-group-item" key="7"> {`Lugar de trabajo: ${hero?.work.occupation}`}</li>
+              <li className="list-group-item" key="1"> {`Peso: ${hero.appearance.weight[1]}`} </li>
+              <li className="list-group-item" key="2"> {`Altura: ${hero.appearance.height[1]}`}</li>
+              <li className="list-group-item" key="3"> {`Nombre: ${hero.name}`}</li>
+              <li className="list-group-item" key="4"> {`Alias: ${hero.biography.aliases[0]}`}</li>
+              <li className="list-group-item" key="5"> {`Color de ojos: ${hero.appearance["eye-color"]}`}</li>
+              <li className="list-group-item" key="6"> {`Color de cabello: ${hero.appearance["hair-color"]}`}</li>
+              <li className="list-group-item" key="7"> {`Lugar de trabajo: ${hero.work.occupation}`}</li>
             </ul> 
           </div>
         </div>
