@@ -6,31 +6,6 @@ const initialState = {
   owned: [],
   status: 'idle',
 }
-
-const isHeroOkToBeAdded = (hero, ownedHeros) => {
-  let badCount=0 
-  let goodCount=0
-  let alreadyChosen = false
-  
-  if(hero.biography.alignment === "bad")
-    badCount=1
-  if(hero.biography.alignment === "good") 
-    goodCount=1
-
-  for (let j = 0; j< ownedHeros.length; j++){
-    if(ownedHeros[j].biography.alignment === "bad")
-      badCount++
-    else
-      goodCount++
-    if (ownedHeros[j].id === hero.id)
-      alreadyChosen = true
-  }    
-  const balancedTeam = (badCount<=3 && goodCount<=3)
-  if (!alreadyChosen && balancedTeam) 
-    return true
-  return false
-}
-
 export const getHerosInfo = createAsyncThunk(
   'heros/fetchHeros',
   async (name) => {
